@@ -1,0 +1,16 @@
+# Node
+backend/node_modules/
+
+# Flutter
+mobile_frontend/.dart_tool/
+mobile_frontend/build/
+mobile_frontend/.packages
+mobile_frontend/pubspec.lock
+
+# React
+web_frontend/node_modules/
+web_frontend/build/
+
+# General
+.DS_Store
+.env
