@@ -1,0 +1,146 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../config/theme/colors.dart';
+
+TextFormField def_TextFromField(
+    {required TextInputType keyboardType,
+    required TextEditingController controller,
+    FocusNode? focusNode,
+    GestureTapCallback? onTap,
+    ValueChanged<String>? onChanged,
+    ValueChanged<String>? onFieldSubmitted,
+    FormFieldValidator? validator,
+    Widget? prefixIcon,
+    Widget? suffixIcon,
+    int? maxLength,
+    String? counterText = '',
+    MaxLengthEnforcement? maxLengthEnforcement,
+    bool obscureText = false,
+    int maxLines = 1,
+    int minLines = 1,
+    TextStyle labelStyle = const TextStyle(color: Colors.black),
+    Color textColor = Colors.black,
+    Color cursorColor = AppColor.secondaryLight,
+    Color borderFocusedColor = AppColor.primaryLight,
+    Color borderNormalColor = AppColor.gray500,
+    Color fillColor = const Color.fromARGB(255, 236, 236, 237),
+    AutovalidateMode autValidateMode = AutovalidateMode.onUserInteraction,
+    double br = 25.0,
+    String? hintText,
+    String? labelText,
+    TextStyle? hintStyle,
+    Key? key}) {
+  return TextFormField(
+    key: key,
+    onTap: onTap,
+    style: TextStyle(fontSize: 15.sp, color: textColor),
+    maxLength: maxLength,
+    maxLengthEnforcement: maxLengthEnforcement,
+    keyboardType: keyboardType,
+    controller: controller,
+    validator: validator,
+    focusNode: focusNode,
+    obscureText: obscureText,
+    readOnly: false,
+    textDirection: TextDirection.ltr,
+    onFieldSubmitted: onFieldSubmitted,
+    onChanged: onChanged,
+    minLines: minLines,
+    maxLines: obscureText ? 1 : maxLines,
+    cursorColor: cursorColor,
+    autovalidateMode: autValidateMode,
+    decoration: InputDecoration(
+        counterText: "",
+        labelText: labelText,
+        hintText: hintText,
+        hintStyle: hintStyle,
+        prefixIcon: prefixIcon,
+        border: const UnderlineInputBorder(),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: borderNormalColor),
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: borderFocusedColor),
+        ),
+        errorBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.red),
+        ),
+        suffixIcon: suffixIcon,
+        labelStyle: labelStyle,
+        floatingLabelStyle: const TextStyle(color: AppColor.primaryLight)),
+  );
+}
+
+TextFormField def_TextFromField_search({
+  required TextInputType keyboardType,
+  required TextEditingController controller,
+  GestureTapCallback? onTap,
+  ValueChanged<String>? onChanged,
+  ValueChanged<String>? onFieldSubmitted,
+  FormFieldValidator? validator,
+  Widget? prefixIcon,
+  Widget? suffixIcon,
+  int? maxLength,
+  String? counterText = '',
+  MaxLengthEnforcement? maxLengthEnforcement,
+  bool obscureText = false,
+  int maxLines = 1,
+  int minLines = 1,
+  String label = '',
+  String? labelText,
+  TextStyle labelStyle = const TextStyle(color: AppColor.primaryLight),
+  Color cursorColor = AppColor.secondaryLight,
+  Color borderFocusedColor = AppColor.primaryLight,
+  Color borderNormalColor = AppColor.gray500,
+  Color fillColor = const Color.fromARGB(255, 236, 236, 237),
+  double br = 15,
+}) {
+  return TextFormField(
+    onTap: onTap,
+    style: TextStyle(fontSize: 14.sp, color: AppColor.primaryLight),
+    maxLength: maxLength,
+    maxLengthEnforcement: maxLengthEnforcement,
+    keyboardType: keyboardType,
+    controller: controller,
+    validator: validator,
+    obscureText: obscureText,
+    readOnly: false,
+    onFieldSubmitted: onFieldSubmitted,
+    onChanged: onChanged,
+    minLines: minLines,
+    maxLines: obscureText ? 1 : maxLines,
+    cursorColor: cursorColor,
+    decoration: InputDecoration(
+      counterText: counterText,
+      prefixIcon: prefixIcon,
+      suffixIcon: suffixIcon,
+      labelText: labelText,
+      labelStyle: labelStyle,
+      fillColor: fillColor,
+      filled: true,
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(br),
+        borderSide: BorderSide(
+          color: borderFocusedColor,
+          width: 1,
+        ),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(br),
+        borderSide: BorderSide(
+          color: borderNormalColor,
+          width: 1,
+        ),
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(br),
+        borderSide: BorderSide(
+          color: borderNormalColor,
+          width: 1,
+        ),
+      ),
+    ),
+  );
+}

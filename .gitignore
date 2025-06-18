@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -22,3 +23,21 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+=======
+# Node
+backend/node_modules/
+
+# Flutter
+mobile_frontend/.dart_tool/
+mobile_frontend/build/
+mobile_frontend/.packages
+mobile_frontend/pubspec.lock
+
+# React
+web_frontend/node_modules/
+web_frontend/build/
+
+# General
+.DS_Store
+.env
+>>>>>>> db3581a4f85504e1d645344026e47212a555bcfb
