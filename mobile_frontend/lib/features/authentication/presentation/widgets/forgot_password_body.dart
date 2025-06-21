@@ -13,8 +13,8 @@ import 'intro_auth_widget.dart';
 class ForgotPasswordBody extends StatelessWidget {
   ForgotPasswordBody({super.key});
 
-  final TextEditingController _gsmController = TextEditingController();
-  final FocusNode _gsmFocusNode = FocusNode();
+  final TextEditingController _emailController = TextEditingController();
+  final FocusNode _emailFocusNode = FocusNode();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -30,11 +30,10 @@ class ForgotPasswordBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const IntroAuthWidget(),
-              TitleAuthWidget(AppLocalizations.of(context)!.mobile_number),
+              TitleAuthWidget(AppLocalizations.of(context)!.txt_email),
               def_TextFromField(
                 textColor: theme.onSurface,
-                labelText: AppLocalizations.of(context)!.mobile_number,
-                hintText: "09xx xxx-xxx",
+                labelText: AppLocalizations.of(context)!.txt_email,
                 hintStyle: Styles.textStyle12.copyWith(
                   color: theme.onSurfaceVariant,
                   fontWeight: FontWeight.w400,
@@ -43,20 +42,19 @@ class ForgotPasswordBody extends StatelessWidget {
                   color: theme.onSurfaceVariant,
                   fontWeight: FontWeight.w400,
                 ),
-                key: const Key('gsm_field'),
+                key: const Key('email_field'),
                 cursorColor: theme.primary,
                 autValidateMode: AutovalidateMode.onUserInteraction,
-                keyboardType: TextInputType.phone,
-                controller: _gsmController,
-                focusNode: _gsmFocusNode,
+                keyboardType: TextInputType.emailAddress,
+                controller: _emailController,
+                focusNode: _emailFocusNode,
                 maxLines: 1,
                 prefixIcon: Icon(
-                  Icons.phone_outlined,
+                  Icons.email_outlined,
                   color: theme.onSurfaceVariant,
                   size: 26,
                 ),
-                maxLength: 10,
-                validator: (value) => Validator.validateGsm(value, context),
+                validator: (value) => Validator.validateEmail(value, context),
               ),
               SizedBox(height: 20.h),
               CustomElevatedButton(
@@ -78,7 +76,7 @@ class ForgotPasswordBody extends StatelessWidget {
                   FocusManager.instance.primaryFocus?.unfocus();
                   if (_formKey.currentState!.validate()) {
                     GoRouter.of(context).push(
-                        "${AppRouter.kLoginPage}/${AppRouter.kForgotPasswordPage}/${AppRouter.kResetPasswordPage}/${_gsmController.text}");
+                        "${AppRouter.kLoginPage}/${AppRouter.kForgotPasswordPage}/${AppRouter.kResetPasswordPage}/${_emailController.text}");
                   }
                 },
               ),

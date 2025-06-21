@@ -17,8 +17,8 @@ class RegisterBody extends StatelessWidget {
   final FocusNode _firstNameFocusNode = FocusNode();
   final TextEditingController _lastNameController = TextEditingController();
   final FocusNode _lastNameFocusNode = FocusNode();
-  final TextEditingController _gsmController = TextEditingController();
-  final FocusNode _gsmFocusNode = FocusNode();
+  final TextEditingController _emailController = TextEditingController();
+  final FocusNode _emailFocusNode = FocusNode();
   final TextEditingController _passwordController = TextEditingController();
   final FocusNode _passwordFocusNode = FocusNode();
   final TextEditingController _confirmPasswordController =
@@ -82,7 +82,7 @@ class RegisterBody extends StatelessWidget {
                   prefixIcon: Icon(Icons.person_outline,
                       color: theme.onSurfaceVariant, size: 26),
                   onFieldSubmitted: (value) {
-                    FocusScope.of(context).requestFocus(_gsmFocusNode);
+                    FocusScope.of(context).requestFocus(_emailFocusNode);
                   },
                   maxLength: 10,
                   validator: (value) => Validator.validateEmpty(value, context),
@@ -90,28 +90,26 @@ class RegisterBody extends StatelessWidget {
                 SizedBox(height: 20.h),
                 def_TextFromField(
                   textColor: theme.onSurface,
-                  labelText: AppLocalizations.of(context)!.mobile_number,
+                  labelText: AppLocalizations.of(context)!.txt_email,
                   labelStyle: Styles.textStyle14.copyWith(
                       color: theme.onSurfaceVariant,
                       fontWeight: FontWeight.w400),
-                  hintText: "09xx xxx-xxx",
                   hintStyle: Styles.textStyle12.copyWith(
                       color: theme.onSurfaceVariant,
                       fontWeight: FontWeight.w400),
-                  key: const Key('gsm_field'),
+                  key: const Key('email_field'),
                   cursorColor: theme.primary,
                   autValidateMode: AutovalidateMode.onUserInteraction,
-                  keyboardType: TextInputType.phone,
-                  controller: _gsmController,
-                  focusNode: _gsmFocusNode,
+                  keyboardType: TextInputType.emailAddress,
+                  controller: _emailController,
+                  focusNode: _emailFocusNode,
                   maxLines: 1,
-                  prefixIcon: Icon(Icons.phone_outlined,
+                  prefixIcon: Icon(Icons.email_outlined,
                       color: theme.onSurfaceVariant, size: 26),
                   onFieldSubmitted: (value) {
                     FocusScope.of(context).requestFocus(_passwordFocusNode);
                   },
-                  maxLength: 10,
-                  validator: (value) => Validator.validateGsm(value, context),
+                  validator: (value) => Validator.validateEmail(value, context),
                 ),
                 SizedBox(height: 20.h),
                 def_TextFromField(

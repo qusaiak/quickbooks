@@ -4,9 +4,9 @@ import '../widgets/auth_widgets.dart';
 import '../widgets/reset_password_body.dart';
 
 class ResetPasswordPage extends StatelessWidget {
-  ResetPasswordPage(this.gsm, {super.key});
+  ResetPasswordPage(this.email, {super.key});
 
-  final String gsm;
+  final String email;
 
   final TextEditingController _pinCodeController = TextEditingController();
 
@@ -30,7 +30,7 @@ class ResetPasswordPage extends StatelessWidget {
       child: Scaffold(
         appBar: appbarWithBackButton(context, theme),
         body: ResetPasswordBody(
-          gsm,
+          email,
           _pinCodeController,
           _formKey,
           _pinCodeFocusNode,

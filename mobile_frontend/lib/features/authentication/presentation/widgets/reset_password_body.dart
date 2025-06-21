@@ -12,7 +12,7 @@ import 'auth_widgets.dart';
 
 class ResetPasswordBody extends StatelessWidget {
   const ResetPasswordBody(
-    this.gsm,
+    this.email,
     this._pinCodeController,
     this._formKey,
     this._pinCodeFocusNode,
@@ -23,7 +23,7 @@ class ResetPasswordBody extends StatelessWidget {
     super.key,
   });
 
-  final String gsm;
+  final String email;
 
   final TextEditingController _pinCodeController;
 
