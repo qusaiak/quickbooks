@@ -28,6 +28,9 @@ class $AssetsImagesGen {
 
   /// Directory path: assets/images/onboarding
   $AssetsImagesOnboardingGen get onboarding => const $AssetsImagesOnboardingGen();
+
+  /// Directory path: assets/images/placeholders
+  $AssetsImagesPlaceholdersGen get placeholders => const $AssetsImagesPlaceholdersGen();
 }
 
 class $AssetsImagesLogoGen {
@@ -63,6 +66,16 @@ class $AssetsImagesOnboardingGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [intro1, intro2, intro3, introImage1, introImage2, introImage3];
+}
+
+class $AssetsImagesPlaceholdersGen {
+  const $AssetsImagesPlaceholdersGen();
+
+  /// File path: assets/images/placeholders/restaurant.jpg
+  AssetGenImage get restaurant => const AssetGenImage('assets/images/placeholders/restaurant.jpg');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [restaurant];
 }
 
 class Assets {
