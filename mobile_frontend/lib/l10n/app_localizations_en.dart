@@ -92,6 +92,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get txt_last_name => 'Last Name';
 
   @override
+  String get txt_email => 'Email Address';
+
+  @override
   String get txt_gender => 'Gender';
 
   @override
@@ -192,6 +195,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get invalid_mobile_number_error_message => 'Please enter a valid mobile number';
+
+  @override
+  String get invalid_email_address_error_message => 'Please enter a valid email address';
 
   @override
   String get empty_field_error_message => 'This field is required';

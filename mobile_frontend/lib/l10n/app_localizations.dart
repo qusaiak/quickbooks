@@ -257,6 +257,12 @@ abstract class AppLocalizations {
   /// **'Last Name'**
   String get txt_last_name;
 
+  /// No description provided for @txt_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Address'**
+  String get txt_email;
+
   /// No description provided for @txt_gender.
   ///
   /// In en, this message translates to:
@@ -460,6 +466,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please enter a valid mobile number'**
   String get invalid_mobile_number_error_message;
+
+  /// No description provided for @invalid_email_address_error_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address'**
+  String get invalid_email_address_error_message;
 
   /// No description provided for @empty_field_error_message.
   ///

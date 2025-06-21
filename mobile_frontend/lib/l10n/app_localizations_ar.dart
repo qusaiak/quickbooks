@@ -92,6 +92,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get txt_last_name => 'الاسم الأخير';
 
   @override
+  String get txt_email => 'البريد الإالكتروني';
+
+  @override
   String get txt_gender => 'الجنس';
 
   @override
@@ -192,6 +195,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get invalid_mobile_number_error_message => 'الرجاء إدخال رقم موبايل صحيح';
+
+  @override
+  String get invalid_email_address_error_message => 'الرجاء إدخال بريد إلكتروني صحيح';
 
   @override
   String get empty_field_error_message => 'هذا الحقل مطلوب';
