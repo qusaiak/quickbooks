@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -14,14 +15,17 @@ import 'l10n/l10n.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-
-
-
-
-
-
   await initializeDependencies();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
 
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: Colors.transparent,
+    ),
+  );
   runApp(const MyApp());
 }
 
@@ -53,11 +57,10 @@ class MyApp extends StatelessWidget {
             title: 'QuickBooks',
             theme: lightTheme(),
             darkTheme: darkTheme(),
-            themeMode:  ThemeMode.light ,
+            themeMode: ThemeMode.light,
             routerConfig: AppRouter.router,
             debugShowCheckedModeBanner: false,
           );
-
         },
       ),
     );
