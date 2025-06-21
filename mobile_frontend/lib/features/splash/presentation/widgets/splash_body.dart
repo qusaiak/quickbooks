@@ -43,11 +43,7 @@ class _SplashPageBodyState extends State<SplashBody>
     var theme = Theme.of(context).colorScheme;
     return Container(
       color: theme.surface,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Lottie.asset(
+      child: Lottie.asset(
             "assets/animations/splash_animation.json",
             fit: BoxFit.contain,
             animate: true,
@@ -58,8 +54,6 @@ class _SplashPageBodyState extends State<SplashBody>
               _controller.forward();
             },
           )
-        ],
-      ),
     );
   }
 }
