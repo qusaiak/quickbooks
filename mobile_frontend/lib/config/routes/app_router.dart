@@ -6,6 +6,8 @@ import '../../features/authentication/presentation/pages/forgot_password_page.da
 import '../../features/authentication/presentation/pages/login_page.dart';
 import '../../features/authentication/presentation/pages/register_page.dart';
 import '../../features/authentication/presentation/pages/reset_password_page.dart';
+import '../../features/base/presentation/pages/base_page.dart';
+import '../../features/home/presentation/pages/home_page.dart';
 import '../../features/onboarding/presentation/pages/onboarding_page.dart';
 import '../../features/splash/presentation/pages/splash_page.dart';
 import '../../injection_container.dart';
@@ -22,7 +24,7 @@ abstract class AppRouter {
   //
   static const kHomePage = '/home';
   static const kSearchPage = '/search';
-  static const kBookingsPage = '/bookings';
+  static const kMyBookingPage = '/myBooking';
   static const kCalendarPage = '/calendar';
 
 
@@ -31,8 +33,8 @@ abstract class AppRouter {
   GlobalKey<NavigatorState>(debugLabel: 'shellHome');
   static final _rootNavigatorSearch =
   GlobalKey<NavigatorState>(debugLabel: 'shellSearch');
-  static final _rootNavigatorBookings =
-  GlobalKey<NavigatorState>(debugLabel: 'shellBookings');
+  static final _rootNavigatorMyBooking =
+  GlobalKey<NavigatorState>(debugLabel: 'shellMyBooking');
   static final _rootNavigatorCalendar =
   GlobalKey<NavigatorState>(debugLabel: 'shellCalendar');
 
@@ -74,9 +76,9 @@ abstract class AppRouter {
             ),
             routes: [
               GoRoute(
-                path: "$kResetPasswordPage/:gsm",
+                path: "$kResetPasswordPage/:email",
                 pageBuilder: (context, state) => slideTransitionHorizontal(
-                  ResetPasswordPage(state.pathParameters['gsm'].toString()),
+                  ResetPasswordPage(state.pathParameters['email'].toString()),
                 ),
               ),
             ],
@@ -88,74 +90,74 @@ abstract class AppRouter {
         pageBuilder: (context, state) =>
             slideTransitionHorizontal(const RegisterPage()),
       ),
-      // StatefulShellRoute.indexedStack(
-      //   builder: (context, state, navigationShell) {
-      //     return BasePage(
-      //       navigationShell: navigationShell,
-      //     );
-      //   },
-      //   branches: <StatefulShellBranch>[
-      //     // Branch Home
-      //     StatefulShellBranch(
-      //       navigatorKey: _rootNavigatorHome,
-      //       routes: [
-      //         // GoRoute(
-      //         //   path: kHomePage,
-      //         //   pageBuilder: (context, state) => slideTransitionHorizontal(
-      //         //     HomePage(
-      //         //       key: state.pageKey,
-      //         //     ),
-      //         //   ),
-      //         // ),
-      //       ],
-      //     ),
-      //
-      //     // Branch Search
-      //     StatefulShellBranch(
-      //       navigatorKey: _rootNavigatorSearch,
-      //       routes: [
-      //         GoRoute(
-      //           path: kSearchPage,
-      //           pageBuilder: (context, state) => slideTransitionHorizontal(
-      //             SearchPage(
-      //               key: state.pageKey,
-      //             ),
-      //           ),
-      //         ),
-      //       ],
-      //     ),
-      //
-      //     // Branch Bookings
-      //     StatefulShellBranch(
-      //       navigatorKey: _rootNavigatorBookings,
-      //       routes: [
-      //         GoRoute(
-      //           path: kBookingsPage,
-      //           pageBuilder: (context, state) => slideTransitionHorizontal(
-      //             BookingsPage(
-      //               key: state.pageKey,
-      //             ),
-      //           ),
-      //         ),
-      //       ],
-      //     ),
-      //
-      //     // Branch Calendar
-      //     StatefulShellBranch(
-      //       navigatorKey: _rootNavigatorCalendar,
-      //       routes: [
-      //         GoRoute(
-      //           path: kCalendarPage,
-      //           pageBuilder: (context, state) => slideTransitionHorizontal(
-      //             CalendarPage(
-      //               key: state.pageKey,
-      //             ),
-      //           ),
-      //         ),
-      //       ],
-      //     ),
-      //   ],
-      // ),
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) {
+          return BasePage(
+            navigationShell: navigationShell,
+          );
+        },
+        branches: <StatefulShellBranch>[
+          // Branch Home
+          StatefulShellBranch(
+            navigatorKey: _rootNavigatorHome,
+            routes: [
+              GoRoute(
+                path: kHomePage,
+                pageBuilder: (context, state) => slideTransitionHorizontal(
+                  HomePage(
+                    key: state.pageKey,
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          // Branch Search
+          StatefulShellBranch(
+            navigatorKey: _rootNavigatorSearch,
+            routes: [
+              GoRoute(
+                path: kSearchPage,
+                pageBuilder: (context, state) => slideTransitionHorizontal(
+                  HomePage(
+                    key: state.pageKey,
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          // Branch MyBooking
+          StatefulShellBranch(
+            navigatorKey: _rootNavigatorMyBooking,
+            routes: [
+              GoRoute(
+                path: kMyBookingPage,
+                pageBuilder: (context, state) => slideTransitionHorizontal(
+                  HomePage(
+                    key: state.pageKey,
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          // Branch Calendar
+          StatefulShellBranch(
+            navigatorKey: _rootNavigatorCalendar,
+            routes: [
+              GoRoute(
+                path: kCalendarPage,
+                pageBuilder: (context, state) => slideTransitionHorizontal(
+                  HomePage(
+                    key: state.pageKey,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     ],
     redirect: (context, state) {
       debugPrint(state.fullPath);

@@ -37,6 +37,22 @@ class _BasePageState extends State<BasePage> {
         return Scaffold(
           extendBody: true,
           backgroundColor: AppColor.transparent,
+          body: PopScope(
+            canPop: state.currentIndex == 0,
+            onPopInvokedWithResult: (val, object) {
+              BlocProvider.of<BaseBloc>(context)
+                  .add(const ChangeBottomNavBarIndex(0));
+            },
+            child: Stack(
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                  height: double.infinity,
+                  child: widget.navigationShell,
+                ),
+              ],
+            ),
+          ),
           bottomNavigationBar: !state.isShown!
               ? null
               : Theme(
@@ -79,7 +95,7 @@ class _BasePageState extends State<BasePage> {
                         ),
                         BottomNavigationBarItem(
                           icon: const Icon(Icons.my_library_books_outlined),
-                          label: "Bookings",
+                          label: "My Booking",
                         ),
                         BottomNavigationBarItem(
                           icon: const Icon(Icons.calendar_month_outlined),
@@ -89,6 +105,7 @@ class _BasePageState extends State<BasePage> {
                     ),
                   ),
                 ),
+
         );
       },
     );

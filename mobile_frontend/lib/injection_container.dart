@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
 
 import 'core/utils/bloc_observer.dart';
+import 'features/base/presentation/bloc/base_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -51,5 +52,5 @@ Future<void> initializeDependencies() async {
     locale = const Locale('ar');
     selectedLanguageValue = 2;
   }
-
+  sl.registerFactory<BaseBloc>(() => BaseBloc());
 }
