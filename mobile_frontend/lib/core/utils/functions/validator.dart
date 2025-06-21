@@ -12,6 +12,15 @@ class Validator {
     return null; // Return null if password meets all criteria
   }
 
+  static String? validateEmail(String? value, context) {
+    if (value!.isEmpty) {
+      return AppLocalizations.of(context)!.empty_field_error_message;
+    } else if (!value.endsWith("@gmail.com")) {
+      return AppLocalizations.of(context)!.invalid_email_address_error_message;
+    }
+    return null; // Return null if password meets all criteria
+  }
+
   static String? validatePassword(String? value, context) {
     if (value!.isEmpty) {
       return AppLocalizations.of(context)!.empty_field_error_message;
